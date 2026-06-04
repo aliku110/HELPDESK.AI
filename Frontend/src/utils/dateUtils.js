@@ -1,1 +1,128 @@
-LyoqCiAqIFVuaWZpZWQgRGF0ZSBVdGlsaXR5IGZvciBIRUxQREVTSy5BSQogKgogKiBGaXhlcyB0aW1lem9uZSBzaGlmdCBpc3N1ZXMgYnkgZXhwbGljaXRseSBmb3JjaW5nIGxvY2FsIGRpc3BsYXkuCiAqIEhhbmRsZXMgU2FmYXJpJ3Mgc3RyaWN0IElTTy04NjAxIHBhcnNpbmcgcmVxdWlyZW1lbnRzLgogKgogKiBSb290IGNhdXNlIG9mIElzc3VlICM5MTI6CiAqIFNhZmFyaSdzIERhdGUgY29uc3RydWN0b3IgaXMgc3RyaWN0ZXIgdGhhbiBDaHJvbWUvRmlyZWZveC4gSXQgcmVqZWN0czoKICogICAtIFRpbWVzdGFtcHMgd2l0aCBhIHNwYWNlIGluc3RlYWQgb2YgJ1QnIChlLmcuICIyMDI0LTAxLTE1IDEwOjMwOjAwIikKICogICAtIFRpbWVzdGFtcHMgd2l0aCBtaWNyb3NlY29uZHMgKGUuZy4gIjIwMjQtMDEtMTVUMTA6MzA6MDAuMTIzNDU2KzAwOjAwIikKICogICAtIENvbXBhY3QgdGltZXpvbmUgb2Zmc2V0cyB3aXRob3V0IGNvbG9uIChlLmcuICIrMDUzMCIpCiAqICAgLSBUaW1lc3RhbXBzIHdpdGggbm8gdGltZXpvbmUgaW5kaWNhdG9yIChhbWJpZ3VvdXMgbG9jYWwgdnMgVVRDKQogKgogKiBBbGwgcHVibGljIGZ1bmN0aW9ucyByb3V0ZSB0aHJvdWdoIGBub3JtYWxpemVEYXRlU3RyaW5nYCBiZWZvcmUgY29uc3RydWN0aW5nCiAqIGEgRGF0ZSBvYmplY3QsIGVuc3VyaW5nIGNyb3NzLWJyb3dzZXIgY29tcGF0aWJpbGl0eS4KICovCgovLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KLy8gUHJpdmF0ZSBoZWxwZXJzCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKLyoqCiAqIE5vcm1hbGlzZXMgYSByYXcgdGltZXN0YW1wIHN0cmluZyAoZS5nLiBmcm9tIFN1cGFiYXNlKSBpbnRvIGEgc3RyaWN0CiAqIElTTy04NjAxIHN0cmluZyB0aGF0IFNhZmFyaSdzIERhdGUgY29uc3RydWN0b3IgY2FuIHBhcnNlIHdpdGhvdXQgZXJyb3JzLgogKgogKiBUcmFuc2Zvcm1hdGlvbnMgYXBwbGllZCAoaW4gb3JkZXIpOgogKiAgMS4gVHJpbSBzdXJyb3VuZGluZyB3aGl0ZXNwYWNlLgogKiAgMi4gUmVwbGFjZSBzcGFjZSBzZXBhcmF0b3Igd2l0aCAnVCcuCiAqICAzLiBUcnVuY2F0ZSBtaWNyb3NlY29uZHMgdG8gbWlsbGlzZWNvbmRzICg2IGRpZ2l0cyDihpIgMyBkaWdpdHMpLgogKiAgNC4gSW5zZXJ0IGNvbG9uIGluIGNvbXBhY3QgdGltZXpvbmUgb2Zmc2V0ICgrMDUzMCDihpIgKzA1OjMwKS4KICogIDUuIEFwcGVuZCAnWicgd2hlbiBubyB0aW1lem9uZSBpbmRpY2F0b3IgaXMgcHJlc2VudC4KICoKICogQHByaXZhdGUKICogQHBhcmFtIHtzdHJpbmd9IHN0ciAtIFJhdyBkYXRlIHN0cmluZyBmcm9tIHRoZSBkYXRhYmFzZS4KICogQHJldHVybnMge3N0cmluZ30gU2FmYXJpLXNhZmUgSVNPLTg2MDEgc3RyaW5nLgogKi8KY29uc3Qgbm9ybWFsaXplRGF0ZVN0cmluZyA9IChzdHIpID0+IHsKICAgIGxldCBzID0gc3RyLnRyaW0oKTsKCiAgICAvLyAxLiBSZXBsYWNlIHNwYWNlIGJldHdlZW4gZGF0ZSBhbmQgdGltZSB3aXRoICdUJwogICAgLy8gICAgIjIwMjQtMDEtMTUgMTA6MzA6MDAiIOKGkiAiMjAyNC0wMS0xNVQxMDozMDowMCIKICAgIHMgPSBzLnJlcGxhY2UoL14oXGR7NH0tXGR7Mn0tXGR7Mn0pXHMrKFxkezJ9OlxkezJ9OlxkezJ9KS8sICckMVQkMicpOwoKICAgIC8vIDIuIFRydW5jYXRlIG1pY3Jvc2Vjb25kcyB0byBtaWxsaXNlY29uZHMKICAgIC8vICAgICIyMDI0LTAxLTE1VDEwOjMwOjAwLjEyMzQ1NiswMDowMCIg4oaSICIyMDI0LTAxLTE1VDEwOjMwOjAwLjEyMyswMDowMCIKICAgIHMgPSBzLnJlcGxhY2UoLyhcLlxkezN9KVxkKy8sICckMScpOwoKICAgIC8vIDMuIEluc2VydCBjb2xvbiBpbiBjb21wYWN0IHRpbWV6b25lIG9mZnNldAogICAgLy8gICAgIiswNTMwIiDihpIgIiswNTozMCIgIHwgICItMDQzMCIg4oaSICItMDQ6MzAiCiAgICBzID0gcy5yZXBsYWNlKC8oWystXSkoXGR7Mn0pKFxkezJ9KSQvLCAnJDEkMjokMycpOwoKICAgIC8vIDQuIEFwcGVuZCAnWicgaWYgdGhlcmUgaXMgbm8gdGltZXpvbmUgaW5kaWNhdG9yIGF0IGFsbAogICAgLy8gICAgIjIwMjQtMDEtMTVUMTA6MzA6MDAiIOKGkiAiMjAyNC0wMS0xNVQxMDozMDowMFoiCiAgICBpZiAoIS9afFsrLV1cZHsyfTpcZHsyfSQvLnRlc3QocykpIHsKICAgICAgICBzICs9ICdaJzsKICAgIH0KCiAgICByZXR1cm4gczsKfTsKCi8qKgogKiBQYXJzZXMgYSByYXcgZGF0ZSB2YWx1ZSBpbnRvIGEgdmFsaWQgRGF0ZSBvYmplY3QuCiAqIFJldHVybnMgbnVsbCBmb3IgYW55IGlucHV0IHRoYXQgY2Fubm90IGJlIHJlc29sdmVkIHRvIGEgdmFsaWQgZGF0ZS4KICoKICogQWNjZXB0czoKICogIC0gRGF0ZSBpbnN0YW5jZXMgKHJldHVybmVkIGFzLWlzIGlmIHZhbGlkKQogKiAgLSBOdW1lcmljIGVwb2NoIHRpbWVzdGFtcHMgKG1zIG9yIHMpCiAqICAtIElTTy04NjAxIHN0cmluZ3MgKG5vcm1hbGl6ZWQgYmVmb3JlIHBhcnNpbmcpCiAqICAtIFNsYXNoLXNlcGFyYXRlZCBkYXRlIHN0cmluZ3MgKCIyMDI0LzAxLzE1IikKICoKICogQHByaXZhdGUKICogQHBhcmFtIHtzdHJpbmd8bnVtYmVyfERhdGV8bnVsbHx1bmRlZmluZWR9IGRhdGVTdHIgLSBSYXcgZGF0ZSB2YWx1ZS4KICogQHJldHVybnMge0RhdGV8bnVsbH0gUGFyc2VkIERhdGUgb3IgbnVsbC4KICovCmV4cG9ydCBjb25zdCBwYXJzZURhdGUgPSAoZGF0ZVN0cikgPT4gewogICAgaWYgKCFkYXRlU3RyKSByZXR1cm4gbnVsbDsKCiAgICAvLyBBbHJlYWR5IGEgRGF0ZSBvYmplY3QKICAgIGlmIChkYXRlU3RyIGluc3RhbmNlb2YgRGF0ZSkgewogICAgICAgIHJldHVybiBpc05hTihkYXRlU3RyLmdldFRpbWUoKSkgPyBudWxsIDogZGF0ZVN0cjsKICAgIH0KCiAgICBjb25zdCBzdHIgPSBTdHJpbmcoZGF0ZVN0cikudHJpbSgpOwogICAgaWYgKCFzdHIpIHJldHVybiBudWxsOwoKICAgIC8vIE51bWVyaWMgZXBvY2ggdGltZXN0YW1wIChtaWxsaXNlY29uZHMgb3Igc2Vjb25kcykKICAgIGlmICgvXlxkKyQvLnRlc3Qoc3RyKSkgewogICAgICAgIGNvbnN0IG51bSA9IHBhcnNlSW50KHN0ciwgMTApOwogICAgICAgIGNvbnN0IG1zID0gbnVtID4gMWUxMiA/IG51bSA6IG51bSAqIDEwMDA7CiAgICAgICAgY29uc3QgZXBvY2hEYXRlID0gbmV3IERhdGUobXMpOwogICAgICAgIHJldHVybiBpc05hTihlcG9jaERhdGUuZ2V0VGltZSgpKSA/IG51bGwgOiBlcG9jaERhdGU7CiAgICB9CgogICAgLy8gU2xhc2gtc2VwYXJhdGVkIGZvcm1hdDogIjIwMjQvMDEvMTUiIOKGkiAiMjAyNC0wMS0xNSIKICAgIGNvbnN0IG5vcm1hbGl6ZWQgPSBub3JtYWxpemVEYXRlU3RyaW5nKAogICAgICAgIHN0ci5yZXBsYWNlKC9eKFxkezR9KVwvKFxkezEsMn0pXC8oXGR7MSwyfSkvLCAoXywgeSwgbSwgZCkgPT4KICAgICAgICAgICAgYCR7eX0tJHttLnBhZFN0YXJ0KDIsICcwJyl9LSR7ZC5wYWRTdGFydCgyLCAnMCcpfWAKICAgICAgICApCiAgICApOwoKICAgIGNvbnN0IGRhdGUgPSBuZXcgRGF0ZShub3JtYWxpemVkKTsKICAgIHJldHVybiBpc05hTihkYXRlLmdldFRpbWUoKSkgPyBudWxsIDogZGF0ZTsKfTsKCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQovLyBQdWJsaWMgQVBJCi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKLyoqCiAqIEZvcm1hdHMgYSBkYXRlIHZhbHVlIGZvciBkaXNwbGF5IGluIHRpY2tldCB0aW1lbGluZXMuCiAqCiAqIFJldHVybnMgYSBsb2NhbGUtZm9ybWF0dGVkIHN0cmluZyBzdWNoIGFzICIxNSBKYW4gMjAyNCwgMTA6MzAgQU0iLgogKiBSZXR1cm5zICdJbnZhbGlkIERhdGUnIGZvciBhbnkgaW5wdXQgdGhhdCBjYW5ub3QgYmUgcGFyc2VkLgogKgogKiBAcGFyYW0ge3N0cmluZ3xudW1iZXJ8RGF0ZXxudWxsfHVuZGVmaW5lZH0gZGF0ZVN0ciAtIFJhdyBkYXRlIHZhbHVlLgogKiBAcmV0dXJucyB7c3RyaW5nfSBGb3JtYXR0ZWQgZGF0ZSBzdHJpbmcgb3IgJ0ludmFsaWQgRGF0ZScuCiAqLwpleHBvcnQgY29uc3QgZm9ybWF0VGltZWxpbmVEYXRlID0gKGRhdGVTdHIpID0+IHsKICAgIGNvbnN0IGRhdGUgPSBwYXJzZURhdGUoZGF0ZVN0cik7CiAgICBpZiAoIWRhdGUpIHJldHVybiAnSW52YWxpZCBEYXRlJzsKCiAgICByZXR1cm4gZGF0ZS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHsKICAgICAgICBkYXk6ICcyLWRpZ2l0JywKICAgICAgICBtb250aDogJ3Nob3J0JywKICAgICAgICB5ZWFyOiAnbnVtZXJpYycsCiAgICAgICAgaG91cjogJzItZGlnaXQnLAogICAgICAgIG1pbnV0ZTogJzItZGlnaXQnLAogICAgICAgIGhvdXIxMjogdHJ1ZSwKICAgIH0pOwp9OwoKLyoqCiAqIFJldHVybnMgdGhlIHVzZXIncyBjdXJyZW50IHRpbWV6b25lIGFiYnJldmlhdGlvbiAoZS5nLiAiSVNUIiwgIlBTVCIpLgogKiBGYWxscyBiYWNrIHRvICdVVEMnIHdoZW4gdGhlIEludGwgQVBJIGlzIHVuYXZhaWxhYmxlICh2ZXJ5IG9sZCBicm93c2VycykuCiAqCiAqIEByZXR1cm5zIHtzdHJpbmd9IFRpbWV6b25lIGFiYnJldmlhdGlvbi4KICovCmV4cG9ydCBjb25zdCBnZXRUaW1lWm9uZUFiYnIgPSAoKSA9PiB7CiAgICB0cnkgewogICAgICAgIHJldHVybiAoCiAgICAgICAgICAgIG5ldyBJbnRsLkRhdGVUaW1lRm9ybWF0KCdlbi1VUycsIHsgdGltZVpvbmVOYW1lOiAnc2hvcnQnIH0pCiAgICAgICAgICAgICAgICAuZm9ybWF0VG9QYXJ0cyhuZXcgRGF0ZSgpKQogICAgICAgICAgICAgICAgLmZpbmQoKHBhcnQpID0+IHBhcnQudHlwZSA9PT0gJ3RpbWVab25lTmFtZScpPy52YWx1ZSB8fCAnVVRDJwogICAgICAgICk7CiAgICB9IGNhdGNoIChfZSkgewogICAgICAgIHJldHVybiAnVVRDJzsKICAgIH0KfTsKCi8qKgogKiBGb3JtYXQgYSBkYXRlIHN0cmluZyB3aXRoIHRpbWV6b25lIGFiYnJldmlhdGlvbiBhcHBlbmRlZC4KICogU2FmYXJpLXNhZmUuCiAqIEZhbGxzIGJhY2sgdG8gJ1Byb2Nlc3NpbmcuLi4nIHdoZW4gZGF0ZVN0ciBpcyBmYWxzeSBvciBpbnZhbGlkLgogKgogKiBAcGFyYW0ge3N0cmluZ3xudW1iZXJ8RGF0ZXxudWxsfHVuZGVmaW5lZH0gZGF0ZVN0ciAtIFJhdyBkYXRlIHZhbHVlLgogKiBAcmV0dXJucyB7c3RyaW5nfSBGb3JtYXR0ZWQgdGltZXN0YW1wIHdpdGggdGltZXpvbmUsIG9yICdQcm9jZXNzaW5nLi4uJy4KICovCmV4cG9ydCBjb25zdCBmb3JtYXRGdWxsVGltZXN0YW1wID0gKGRhdGVTdHIpID0+IHsKICAgIGNvbnN0IGZvcm1hdHRlZCA9IGZvcm1hdFRpbWVsaW5lRGF0ZShkYXRlU3RyKTsKICAgIGlmICghZm9ybWF0dGVkIHx8IGZvcm1hdHRlZCA9PT0gJ0ludmFsaWQgRGF0ZScpIHJldHVybiAnUHJvY2Vzc2luZy4uLic7CiAgICByZXR1cm4gYCR7Zm9ybWF0dGVkfSAoJHtnZXRUaW1lWm9uZUFiYnIoKX0pYDsKfTsKCi8qKgogKiBDaGVja3Mgd2hldGhlciBhIGRhdGUgc3RyaW5nIChvciB2YWx1ZSkgaXMgdmFsaWQgYW5kIHBhcnNlYWJsZS4KICoKICogQHBhcmFtIHtzdHJpbmd8bnVtYmVyfERhdGV8bnVsbHx1bmRlZmluZWR9IGRhdGVTdHIgLSBWYWx1ZSB0byB2YWxpZGF0ZS4KICogQHJldHVybnMge2Jvb2xlYW59IFRydWUgaWYgdGhlIHZhbHVlIHJlcHJlc2VudHMgYSB2YWxpZCBkYXRlLgogKi8KZXhwb3J0IGNvbnN0IGlzVmFsaWREYXRlID0gKGRhdGVTdHIpID0+IHsKICAgIHJldHVybiBwYXJzZURhdGUoZGF0ZVN0cikgIT09IG51bGw7Cn07CgovKioKICogUmV0dXJucyBhIGh1bWFuLXJlYWRhYmxlIHJlbGF0aXZlIHRpbWUgc3RyaW5nIChlLmcuICIyIGhvdXJzIGFnbyIpLgogKiBGYWxscyBiYWNrIHRvIGEgZm9ybWF0dGVkIGRhdGUgc3RyaW5nIGZvciBkYXRlcyBvbGRlciB0aGFuIDcgZGF5cy4KICogUmV0dXJucyAnUHJvY2Vzc2luZy4uLicgZm9yIGludmFsaWQgaW5wdXRzLgogKgogKiBAcGFyYW0ge3N0cmluZ3xudW1iZXJ8RGF0ZXxudWxsfHVuZGVmaW5lZH0gZGF0ZVN0ciAtIFJhdyBkYXRlIHZhbHVlLgogKiBAcmV0dXJucyB7c3RyaW5nfSBSZWxhdGl2ZSB0aW1lIHN0cmluZyBvciAnUHJvY2Vzc2luZy4uLicuCiAqLwpleHBvcnQgY29uc3QgZ2V0UmVsYXRpdmVUaW1lID0gKGRhdGVTdHIpID0+IHsKICAgIGNvbnN0IGRhdGUgPSBwYXJzZURhdGUoZGF0ZVN0cik7CiAgICBpZiAoIWRhdGUpIHJldHVybiAnUHJvY2Vzc2luZy4uLic7CgogICAgY29uc3Qgbm93ID0gRGF0ZS5ub3coKTsKICAgIGNvbnN0IGRpZmZNcyA9IG5vdyAtIGRhdGUuZ2V0VGltZSgpOwoKICAgIC8vIEZ1dHVyZSBkYXRlcyBvciB2ZXJ5IHJlY2VudCAod2l0aGluIDYwIHNlY29uZHMpCiAgICBpZiAoZGlmZk1zIDwgMCB8fCBkaWZmTXMgPCA2MCAqIDEwMDApIHJldHVybiAnSnVzdCBub3cnOwoKICAgIGNvbnN0IGRpZmZNaW4gPSBNYXRoLmZsb29yKGRpZmZNcyAvICg2MCAqIDEwMDApKTsKICAgIGlmIChkaWZmTWluIDwgNjApIHJldHVybiBgJHtkaWZmTWlufSBtaW51dGUke2RpZmZNaW4gPT09IDEgPyAnJyA6ICdzJ30gYWdvYDsKCiAgICBjb25zdCBkaWZmSHIgPSBNYXRoLmZsb29yKGRpZmZNaW4gLyA2MCk7CiAgICBpZiAoZGlmZkhyIDwgMjQpIHJldHVybiBgJHtkaWZmSHJ9IGhvdXIke2RpZmZIciA9PT0gMSA/ICcnIDogJ3MnfSBhZ29gOwoKICAgIGNvbnN0IGRpZmZEYXkgPSBNYXRoLmZsb29yKGRpZmZIciAvIDI0KTsKICAgIGlmIChkaWZmRGF5IDwgNykgcmV0dXJuIGAke2RpZmZEYXl9IGRheSR7ZGlmZkRheSA9PT0gMSA/ICcnIDogJ3MnfSBhZ29gOwoKICAgIC8vIE9sZGVyIHRoYW4gNyBkYXlzIOKAlCByZXR1cm4gZm9ybWF0dGVkIGRhdGUgd2l0aCB0aW1lem9uZQogICAgcmV0dXJuIGAke2Zvcm1hdFRpbWVsaW5lRGF0ZShkYXRlU3RyKX0gKCR7Z2V0VGltZVpvbmVBYmJyKCl9KWA7Cn07CgovKioKICogU2FmYXJpLXNhZmUgd3JhcHBlciBhcm91bmQgYG5ldyBEYXRlKClgIGZvciB1c2UgaW4gc29ydCBjb21wYXJhdG9ycwogKiBhbmQgYW55IG90aGVyIGNvZGUgdGhhdCBuZWVkcyBhIHJhdyBEYXRlIG9iamVjdCBmcm9tIGEgU3VwYWJhc2UgdGltZXN0YW1wLgogKgogKiBSZXBsYWNlcyBkaXJlY3QgYG5ldyBEYXRlKGNyZWF0ZWRfYXQpYCBjYWxscyB0aGF0IGJyZWFrIG9uIFNhZmFyaS4KICoKICogQHBhcmFtIHtzdHJpbmd8bnVtYmVyfERhdGV8bnVsbHx1bmRlZmluZWR9IGRhdGVTdHIgLSBSYXcgZGF0ZSB2YWx1ZS4KICogQHJldHVybnMge0RhdGV9IFBhcnNlZCBEYXRlLCBvciBgbmV3IERhdGUoMClgIChlcG9jaCkgYXMgYSBzYWZlIGZhbGxiYWNrLgogKi8KZXhwb3J0IGNvbnN0IHNhZmVQYXJzZURhdGVGb3JTb3J0ID0gKGRhdGVTdHIpID0+IHsKICAgIHJldHVybiBwYXJzZURhdGUoZGF0ZVN0cikgPz8gbmV3IERhdGUoMCk7Cn07Cg==
+/**
+ * Unified Date Utility for HELPDESK.AI
+ * Fixed for Safari, Firefox, and Chrome cross-browser compatibility.
+ * Includes robust fallbacks for empty/corrupt dates.
+ */
+
+/**
+ * Normalize a date string to ISO-8601 format for cross-browser parsing.
+ * Handles formats Safari struggles with: space-separated, +/- timezone without T, etc.
+ */
+const normalizeDateString = (dateStr) => {
+    if (typeof dateStr !== 'string' || !dateStr.trim()) {
+        return null;
+    }
+
+    let normalized = dateStr.trim();
+
+    // Replace space between date and time with 'T' (Safari needs this)
+    // e.g. "2024-01-15 10:30:00" -> "2024-01-15T10:30:00Z"
+    const spaceIndex = normalized.indexOf(' ');
+    if (spaceIndex !== -1 && !normalized.includes('T')) {
+        const datePart = normalized.substring(0, spaceIndex);
+        const timePart = normalized.substring(spaceIndex + 1);
+        // Append Z if no timezone info
+        const tzSuffix = /[Z+-]\d{2}:?\d{2}$/.test(normalized) ? '' : 'Z';
+        normalized = datePart + 'T' + timePart + tzSuffix;
+    }
+
+    return normalized;
+};
+
+/**
+ * Parse a date string cross-browser (Safari-safe).
+ * Returns null for invalid/empty dates.
+ */
+const parseSafe = (dateStr) => {
+    if (!dateStr) return null;
+
+    const normalized = normalizeDateString(dateStr);
+    if (!normalized) return null;
+
+    const date = new Date(normalized);
+    if (isNaN(date.getTime())) return null;
+
+    return date;
+};
+
+/**
+ * Format a date string for the Ticket Timeline.
+ * Safari-safe with graceful fallback to current time.
+ */
+export const formatTimelineDate = (dateStr) => {
+    // Fallback: if dateStr is missing/null, use current time
+    if (!dateStr) {
+        return new Date().toLocaleString(undefined, {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+        });
+    }
+
+    const date = parseSafe(dateStr);
+
+    // Fallback: if parsing fails, use current time instead of showing 'Invalid Date'
+    if (!date) {
+        return new Date().toLocaleString(undefined, {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+        });
+    }
+
+    return date.toLocaleString(undefined, {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+};
+
+/**
+ * Get the current timezone abbreviation.
+ * Works across Safari, Firefox, and Chrome.
+ */
+export const getTimeZoneAbbr = () => {
+    try {
+        return new Intl.DateTimeFormat('en-US', {
+            timeZoneName: 'short'
+        })
+        .formatToParts(new Date())
+        .find(part => part.type === 'timeZoneName')?.value || 'IST';
+    } catch (_e) {
+        return 'IST';
+    }
+};
+
+/**
+ * Format a full timestamp with timezone.
+ */
+export const formatFullTimestamp = (dateStr) => {
+    if (!dateStr) {
+        return 'Processing...';
+    }
+
+    const date = parseSafe(dateStr);
+    if (!date) {
+        return 'Processing...';
+    }
+
+    const formatted = date.toLocaleString(undefined, {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+
+    return `${formatted} (${getTimeZoneAbbr()})`;
+};
