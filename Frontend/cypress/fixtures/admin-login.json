@@ -1,0 +1,7 @@
+{
+  "email": "admin@helpdesk.local",
+  "password": "adminpassword123",
+  "name": "Test Admin",
+  "role": "admin",
+  "id": "admin-001"
+}
