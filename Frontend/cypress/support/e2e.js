@@ -1,34 +1,24 @@
-/* eslint-disable no-unused-vars */
-/* global Cypress */
-// Cypress E2E support file
+/// <reference types="cypress" />
+
+// Import commands
 import './commands';
 
-// Prevent uncaught exceptions from failing tests
-// React lazy loading, chunk loading, and HMR can throw transient errors
-Cypress.on('uncaught:exception', (err) => {
-  // Ignore known non-critical errors
-  const ignoredErrors = [
-    'ChunkLoadError',
-    'Loading chunk',
-    'Loading CSS chunk',
-    'NetworkError',
-    'Failed to fetch',
-    'ResizeObserver loop',
-    'Non-Error promise rejection',
-  ];
-
-  const shouldIgnore = ignoredErrors.some(
-    (pattern) => err.message && err.message.includes(pattern)
-  );
-
-  if (shouldIgnore) {
-    return false;
-  }
-
-  // Returning false prevents Cypress from failing the test
+// Global Cypress configuration
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Prevent Cypress from failing tests on uncaught exceptions from the app
+  // We log it for debugging purposes
+  console.error('[Cypress] Uncaught exception:', err.message);
   return false;
 });
 
-// Set default viewport
-Cypress.config('viewportWidth', 1280);
-Cypress.config('viewportHeight', 720);
+// Clear localStorage and sessionStorage between tests for isolation
+beforeEach(() => {
+  cy.clearLocalStorage();
+  cy.clearSessionStorage();
+});
+
+// Log any failed XHR requests for debugging (optional, toggle as needed)
+// Cypress.on('fail', (error, runnable) => {
+//   // Add custom debugging info here if needed
+//   throw error;
+// });

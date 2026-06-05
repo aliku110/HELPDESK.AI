@@ -1,226 +1,155 @@
-/* eslint-disable no-unused-vars */
-/* global Cypress, cy */
-
-// ─── Auth Commands ───────────────────────────────────────────────────────────
+/// <reference types="cypress" />
 
 /**
- * Login via the UI with email and password.
+ * Custom Cypress commands for the HelpDesk AI application.
+ * These encapsulate common patterns: admin login, settings save, etc.
  */
-Cypress.Commands.add('login', (email, password) => {
-  cy.visit('/login');
-  cy.get('input[type="email"]').type(email);
-  cy.get('input[type="password"]').type(password);
-  cy.get('button[type="submit"]').click();
-  cy.url().should('not.include', '/login');
-});
 
 /**
- * Login as admin using fixture credentials.
- * Stubs the Supabase auth response for deterministic testing.
+ * Login as an admin user.
+ * Uses the admin credentials from cypress.env.json or default test fixtures.
+ *
+ * Usage: cy.loginAsAdmin()
  */
-Cypress.Commands.add('loginAsAdmin', () => {
-  cy.fixture('admin').then((admin) => {
-    // Set auth tokens in localStorage to simulate logged-in state
-    cy.window().then((win) => {
-      win.localStorage.setItem(
-        'sb-localhost-auth-token',
-        JSON.stringify({
-          access_token: 'fake-access-token',
-          refresh_token: 'fake-refresh-token',
-          expires_at: Date.now() + 3600000,
-          user: {
-            id: 'test-admin-uid',
-            email: admin.email,
-            user_metadata: { full_name: admin.fullName, role: 'admin' },
-          },
-        })
-      );
-    });
-
-    // Intercept Supabase auth calls to return mock session
-    cy.intercept('GET', '**/auth/v1/user**', {
-      statusCode: 200,
-      body: {
-        id: 'test-admin-uid',
-        email: admin.email,
-        user_metadata: { full_name: admin.fullName, role: 'admin' },
-      },
-    }).as('getAuthUser');
-
-    cy.intercept('POST', '**/auth/v1/token**', {
-      statusCode: 200,
-      body: {
-        access_token: 'fake-access-token',
-        refresh_token: 'fake-refresh-token',
-        user: {
-          id: 'test-admin-uid',
-          email: admin.email,
-        },
-      },
-    }).as('postAuthToken');
-  });
-});
-
-// ─── Settings API Commands ───────────────────────────────────────────────────
-
-/**
- * Stub the Supabase system_settings API to return mock settings.
- * @param {Object} overrides - Partial settings to override defaults
- */
-Cypress.Commands.add('stubSettingsApi', (overrides = {}) => {
-  const defaultSettings = {
-    ai_confidence_threshold: 0.75,
-    duplicate_sensitivity: 3,
-    enable_auto_resolve: true,
-    auto_close_days: 7,
-    email_notifications: true,
-    admin_alerts: true,
-    digest_enabled: false,
-    digest_admin_email: 'admin@helpdesk.ai',
-    enable_encryption: false,
-    enable_pii_redaction: false,
-    ...overrides,
+Cypress.Commands.add('loginAsAdmin', (overrides = {}) => {
+  const defaultAdmin = {
+    email: Cypress.env('admin_email') || 'admin@helpdesk.local',
+    password: Cypress.env('admin_password') || 'adminpassword123',
   };
 
-  // Intercept Supabase REST calls for system_settings
-  cy.intercept('GET', '**/rest/v1/system_settings**', {
-    statusCode: 200,
-    body: [defaultSettings],
-    headers: { 'content-range': '0-0/1' },
-  }).as('getSettings');
+  const admin = { ...defaultAdmin, ...overrides };
 
-  // Intercept upsert/save calls
-  cy.intercept('PATCH', '**/rest/v1/system_settings**', {
-    statusCode: 200,
-    body: [{ ...defaultSettings }],
-  }).as('saveSettings');
-
-  cy.intercept('POST', '**/rest/v1/system_settings**', {
-    statusCode: 201,
-    body: [{ ...defaultSettings }],
-  }).as('upsertSettings');
-});
-
-// ─── Navigation Commands ─────────────────────────────────────────────────────
-
-/**
- * Navigate to admin settings page with auth stubs.
- */
-Cypress.Commands.add('goToAdminSettings', () => {
-  cy.visit('/admin/settings');
+  cy.session([admin.email], () => {
+    cy.visit('/login');
+    cy.get('[data-testid="email-input"], input[name="email"], input[type="email"]')
+      .first()
+      .type(admin.email);
+    cy.get('[data-testid="password-input"], input[name="password"], input[type="password"]')
+      .first()
+      .type(admin.password);
+    cy.get('[data-testid="login-button"], button[type="submit"]').first().click();
+    // Wait for redirect after successful login
+    cy.url().should('not.include', '/login', { timeout: 10000 });
+  });
 });
 
 /**
- * Navigate to admin tickets page.
+ * Intercept and mock an API call for settings updates.
+ *
+ * Usage:
+ *   cy.mockSettingsUpdate({ companyName: 'New Company' })
+ *   // Then trigger the settings save in your app
+ *
+ * @param {object} responseData - The data to return from the mocked API
+ * @param {number} statusCode - HTTP status code (default: 200)
  */
-Cypress.Commands.add('goToAdminTickets', () => {
-  cy.visit('/admin/tickets');
-});
-
-/**
- * Navigate to admin dashboard.
- */
-Cypress.Commands.add('goToAdminDashboard', () => {
-  cy.visit('/admin/dashboard');
-});
-
-// ─── WebSocket / Realtime Commands ───────────────────────────────────────────
-
-/**
- * Emit a simulated Supabase realtime ticket update event.
- * Dispatches a CustomEvent that the app's realtime listener can capture.
- * @param {string} ticketId - The ticket ID to update
- * @param {string} newStatus - The new status value
- */
-Cypress.Commands.add('emitRealtimeTicketUpdate', (ticketId, newStatus) => {
-  cy.window().then((win) => {
-    const payload = {
-      eventType: 'UPDATE',
-      new: {
-        ticket_id: ticketId,
-        status: newStatus,
-        updated_at: new Date().toISOString(),
+Cypress.Commands.add('mockSettingsUpdate', (responseData = {}, statusCode = 200) => {
+  cy.intercept('PUT', '**/api/settings', (req) => {
+    req.reply({
+      statusCode,
+      body: {
+        success: true,
+        message: 'Settings updated successfully',
+        data: responseData,
       },
-      old: { ticket_id: ticketId },
+    });
+  }).as('settingsUpdate');
+
+  cy.intercept('PATCH', '**/api/settings', (req) => {
+    req.reply({
+      statusCode,
+      body: {
+        success: true,
+        message: 'Settings updated successfully',
+        data: responseData,
+      },
+    });
+  }).as('settingsUpdate');
+});
+
+/**
+ * Intercept and stub WebSocket events for timeline testing.
+ * Mocks the real-time event stream so tests don't depend on backend timing.
+ *
+ * Usage:
+ *   cy.stubTimelineWebSocket();
+ *   // Trigger a ticket status change in the app
+ *   cy.wait('@timelineEvent').its('response.body.status').should('eq', 'closed');
+ *
+ * @param {string} ticketId - The ticket ID to stub events for
+ * @param {string} eventType - Event type to simulate (e.g., 'ticket.status_changed')
+ * @param {object} eventPayload - The event payload data
+ */
+Cypress.Commands.add(
+  'stubTimelineWebSocket',
+  { prevSubject: false },
+  (ticketId, eventType = 'ticket.status_changed', eventPayload = {}) => {
+    const defaultPayload = {
+      id: ticketId || 'TICKET-001',
+      event_type: eventType,
+      timestamp: new Date().toISOString(),
+      data: {
+        ticket_id: ticketId || 'TICKET-001',
+        old_status: 'open',
+        new_status: 'in_progress',
+        changed_by: 'agent-01',
+        ...eventPayload,
+      },
     };
 
-    // Dispatch as a custom event for Supabase realtime channel simulation
-    win.dispatchEvent(
-      new CustomEvent('supabase-realtime-ticket', { detail: payload })
-    );
-
-    // Also try dispatching via a global handler if the app uses one
-    if (win.__supabaseRealtimeHandler) {
-      win.__supabaseRealtimeHandler(payload);
-    }
-  });
-});
-
-// ─── Storage Commands ────────────────────────────────────────────────────────
-
-/**
- * Clear all localStorage.
- */
-Cypress.Commands.add('clearAllLocalStorage', () => {
-  cy.window().then((win) => {
-    win.localStorage.clear();
-  });
-});
-
-/**
- * Clear all sessionStorage.
- */
-Cypress.Commands.add('clearAllSessionStorage', () => {
-  cy.window().then((win) => {
-    win.sessionStorage.clear();
-  });
-});
-
-/**
- * Clear all cookies.
- */
-Cypress.Commands.add('clearAllCookies', () => {
-  cy.clearCookies();
-});
-
-// ─── Utility Commands ────────────────────────────────────────────────────────
-
-/**
- * Wait for page to be fully loaded (no pending network requests).
- */
-Cypress.Commands.add('waitForPageLoad', () => {
-  cy.get('body').should('be.visible');
-  // Wait a tick for any pending async operations
-  cy.wait(500);
-});
-
-/**
- * Intercept and stub common backend API endpoints.
- */
-Cypress.Commands.add('stubBackendApis', () => {
-  // Tickets list
-  cy.intercept('GET', '**/rest/v1/tickets**', {
-    statusCode: 200,
-    body: [],
-    headers: { 'content-range': '0-0/0' },
-  }).as('getTicketsList');
-
-  // Company/profile
-  cy.intercept('GET', '**/rest/v1/companies**', {
-    statusCode: 200,
-    body: [{ id: 'test-company-id', name: 'TestCorp' }],
-  }).as('getCompany');
-
-  // User profile
-  cy.intercept('GET', '**/rest/v1/profiles**', {
-    statusCode: 200,
-    body: [
+    // Stub WebSocket connection if app uses native WS
+    cy.intercept(
       {
-        id: 'test-admin-uid',
-        email: 'admin@helpdesk.ai',
-        role: 'admin',
-        company_id: 'test-company-id',
+        method: 'GET',
+        url: '**/ws/timeline*',
       },
-    ],
-  }).as('getProfile');
+      (req) => {
+        req.reply({
+          statusCode: 101,
+          body: '',
+        });
+      }
+    ).as('wsConnection');
+
+    // Also intercept any HTTP long-poll fallback the app might use
+    cy.intercept('GET', '**/api/timeline/**', (req) => {
+      req.reply({
+        statusCode: 200,
+        body: defaultPayload,
+      });
+    }).as('timelinePoll');
+
+    // Intercept POST for subscribing to ticket timeline
+    cy.intercept('POST', '**/api/timeline/subscribe', (req) => {
+      req.reply({
+        statusCode: 200,
+        body: { subscribed: true, ticket_id: ticketId || 'TICKET-001' },
+      });
+    }).as('timelineSubscribe');
+  }
+);
+
+/**
+ * Assert that a notification toast appeared.
+ * Works with common toast libraries (antd, react-hot-toast, etc.)
+ *
+ * Usage: cy.expectToast('Settings saved successfully')
+ */
+Cypress.Commands.add('expectToast', (messageSubstring) => {
+  cy.contains('[role="alert"], .toast, [data-testid="toast"], .ant-message', messageSubstring, {
+    timeout: 5000,
+  }).should('be.visible');
+});
+
+/**
+ * Reload the page and verify a value is persisted.
+ * Use for testing localStorage or sessionStorage persistence.
+ *
+ * Usage:
+ *   cy.get('[data-testid="company-name"]').should('contain', 'My Company');
+ *   cy.reloadAndVerify('[data-testid="company-name"]', 'contain', 'My Company');
+ */
+Cypress.Commands.add('reloadAndVerify', (selector, operation, value) => {
+  cy.reload();
+  cy.get(selector).should(operation, value);
 });
