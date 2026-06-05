@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.cypress.io/cypress.schema.json",
+  "e2e": {
+    "setupNodeEvents": [],
+    "specPattern": "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
+    "supportFile": "cypress/support/e2e.js",
+    "baseUrl": "http://localhost:5173",
+    "viewportWidth": 1280,
+    "viewportHeight": 720,
+    "video": false,
+    "screenshotOnRunFailure": true,
+    "defaultCommandTimeout": 10000,
+    "requestTimeout": 15000,
+    "responseTimeout": 15000,
+    "env": {
+      "apiBaseUrl": "http://localhost:4000/api"
+    }
+  },
+  "component": {
+    "devServer": {
+      "framework": "vite",
+      "bundler": "webpack"
+    },
+    "specPattern": "cypress/component/**/*.cy.{js,jsx,ts,tsx}"
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
+}
